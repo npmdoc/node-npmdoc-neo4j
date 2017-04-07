@@ -1,0 +1,3648 @@
+<div class="apidocDiv">
+<style>
+/*csslint
+*/
+.apidocDiv {
+    background: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.apidocDiv a[href] {
+    color: #33f;
+    font-weight: bold;
+    text-decoration: none;
+}
+.apidocDiv a[href]:hover {
+    text-decoration: underline;
+}
+.apidocCodeCommentSpan {
+    background: #bbf;
+    color: #000;
+    display: block;
+}
+.apidocCodeKeywordSpan {
+    color: #d00;
+    font-weight: bold;
+}
+.apidocCodePre {
+    background: #eef;
+    border: 1px solid;
+    color: #777;
+    padding: 5px;
+    white-space: pre-wrap;
+}
+.apidocFooterDiv {
+    margin-top: 20px;
+    text-align: center;
+}
+.apidocModuleLi {
+    margin-top: 10px;
+}
+.apidocSectionDiv {
+    border-top: 1px solid;
+    margin-top: 20px;
+}
+.apidocSignatureSpan {
+    color: #777;
+    font-weight: bold;
+}
+</style>
+<h1>api documentation for
+    <a
+
+        href="https://github.com/thingdom/node-neo4j"
+
+    >neo4j (v1.1.1)</a>
+</h1>
+<h4>Neo4j driver (REST API client) for Node.js</h4>
+<div class="apidocSectionDiv"><a
+    href="#apidoc.tableOfContents"
+    id="apidoc.tableOfContents"
+><h1>table of contents</h1></a><ol>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.neo4j">module neo4j</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.neo4j.GraphDatabase">
+            function <span class="apidocSignatureSpan">neo4j.</span>GraphDatabase
+            <span class="apidocSignatureSpan">(opts)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.neo4j.Node">
+            function <span class="apidocSignatureSpan">neo4j.</span>Node
+            <span class="apidocSignatureSpan">(db, data)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.neo4j.PropertyContainer">
+            function <span class="apidocSignatureSpan">neo4j.</span>PropertyContainer
+            <span class="apidocSignatureSpan">(db, data)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.neo4j.Relationship">
+            function <span class="apidocSignatureSpan">neo4j.</span>Relationship
+            <span class="apidocSignatureSpan">(db, data, start, end)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.neo4j.deserialize">
+            function <span class="apidocSignatureSpan">neo4j.</span>deserialize
+            <span class="apidocSignatureSpan">(o, separator)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.neo4j.serialize">
+            function <span class="apidocSignatureSpan">neo4j.</span>serialize
+            <span class="apidocSignatureSpan">(o, separator)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">neo4j.</span>GraphDatabase.prototype</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">neo4j.</span>Node.prototype</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">neo4j.</span>PropertyContainer.prototype</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">neo4j.</span>Relationship.prototype</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">neo4j.</span>util</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.neo4j.GraphDatabase">module neo4j.GraphDatabase</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.neo4j.GraphDatabase.GraphDatabase">
+            function <span class="apidocSignatureSpan">neo4j.</span>GraphDatabase
+            <span class="apidocSignatureSpan">(opts)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.neo4j.GraphDatabase.prototype">module neo4j.GraphDatabase.prototype</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.neo4j.GraphDatabase.prototype._getRoot">
+            function <span class="apidocSignatureSpan">neo4j.GraphDatabase.prototype.</span>_getRoot
+            <span class="apidocSignatureSpan">(_)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.neo4j.GraphDatabase.prototype._purgeCache">
+            function <span class="apidocSignatureSpan">neo4j.GraphDatabase.prototype.</span>_purgeCache
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.neo4j.GraphDatabase.prototype._toJSON">
+            function <span class="apidocSignatureSpan">neo4j.GraphDatabase.prototype.</span>_toJSON
+            <span class="apidocSignatureSpan">(obj)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.neo4j.GraphDatabase.prototype.createNode">
+            function <span class="apidocSignatureSpan">neo4j.GraphDatabase.prototype.</span>createNode
+            <span class="apidocSignatureSpan">(data)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.neo4j.GraphDatabase.prototype.createNodeIndex">
+            function <span class="apidocSignatureSpan">neo4j.GraphDatabase.prototype.</span>createNodeIndex
+            <span class="apidocSignatureSpan">(name, config, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.neo4j.GraphDatabase.prototype.createRelationship">
+            function <span class="apidocSignatureSpan">neo4j.GraphDatabase.prototype.</span>createRelationship
+            <span class="apidocSignatureSpan">(startNode, endNode, type, _)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.neo4j.GraphDatabase.prototype.createRelationshipIndex">
+            function <span class="apidocSignatureSpan">neo4j.GraphDatabase.prototype.</span>createRelationshipIndex
+            <span class="apidocSignatureSpan">(name, config, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.neo4j.GraphDatabase.prototype.deleteNodeIndex">
+            function <span class="apidocSignatureSpan">neo4j.GraphDatabase.prototype.</span>deleteNodeIndex
+            <span class="apidocSignatureSpan">(name, _)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.neo4j.GraphDatabase.prototype.deleteRelationshipIndex">
+            function <span class="apidocSignatureSpan">neo4j.GraphDatabase.prototype.</span>deleteRelationshipIndex
+            <span class="apidocSignatureSpan">(name, _)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.neo4j.GraphDatabase.prototype.execute">
+            function <span class="apidocSignatureSpan">neo4j.GraphDatabase.prototype.</span>execute
+            <span class="apidocSignatureSpan">(script, params, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.neo4j.GraphDatabase.prototype.fromJSON">
+            function <span class="apidocSignatureSpan">neo4j.GraphDatabase.prototype.</span>fromJSON
+            <span class="apidocSignatureSpan">(obj)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.neo4j.GraphDatabase.prototype.getIndexedNode">
+            function <span class="apidocSignatureSpan">neo4j.GraphDatabase.prototype.</span>getIndexedNode
+            <span class="apidocSignatureSpan">(index, property, value, _)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.neo4j.GraphDatabase.prototype.getIndexedNodes">
+            function <span class="apidocSignatureSpan">neo4j.GraphDatabase.prototype.</span>getIndexedNodes
+            <span class="apidocSignatureSpan">(index, property, value, _)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.neo4j.GraphDatabase.prototype.getIndexedRelationship">
+            function <span class="apidocSignatureSpan">neo4j.GraphDatabase.prototype.</span>getIndexedRelationship
+            <span class="apidocSignatureSpan">(index, property, value, _)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.neo4j.GraphDatabase.prototype.getIndexedRelationships">
+            function <span class="apidocSignatureSpan">neo4j.GraphDatabase.prototype.</span>getIndexedRelationships
+            <span class="apidocSignatureSpan">(index, property, value, _)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.neo4j.GraphDatabase.prototype.getNode">
+            function <span class="apidocSignatureSpan">neo4j.GraphDatabase.prototype.</span>getNode
+            <span class="apidocSignatureSpan">(url, _)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.neo4j.GraphDatabase.prototype.getNodeById">
+            function <span class="apidocSignatureSpan">neo4j.GraphDatabase.prototype.</span>getNodeById
+            <span class="apidocSignatureSpan">(id, _)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.neo4j.GraphDatabase.prototype.getNodeIndexes">
+            function <span class="apidocSignatureSpan">neo4j.GraphDatabase.prototype.</span>getNodeIndexes
+            <span class="apidocSignatureSpan">(_)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.neo4j.GraphDatabase.prototype.getRelationship">
+            function <span class="apidocSignatureSpan">neo4j.GraphDatabase.prototype.</span>getRelationship
+            <span class="apidocSignatureSpan">(url, _)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.neo4j.GraphDatabase.prototype.getRelationshipById">
+            function <span class="apidocSignatureSpan">neo4j.GraphDatabase.prototype.</span>getRelationshipById
+            <span class="apidocSignatureSpan">(id, _)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.neo4j.GraphDatabase.prototype.getRelationshipIndexes">
+            function <span class="apidocSignatureSpan">neo4j.GraphDatabase.prototype.</span>getRelationshipIndexes
+            <span class="apidocSignatureSpan">(_)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.neo4j.GraphDatabase.prototype.getServices">
+            function <span class="apidocSignatureSpan">neo4j.GraphDatabase.prototype.</span>getServices
+            <span class="apidocSignatureSpan">(_)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.neo4j.GraphDatabase.prototype.query">
+            function <span class="apidocSignatureSpan">neo4j.GraphDatabase.prototype.</span>query
+            <span class="apidocSignatureSpan">(query, params, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.neo4j.GraphDatabase.prototype.queryNodeIndex">
+            function <span class="apidocSignatureSpan">neo4j.GraphDatabase.prototype.</span>queryNodeIndex
+            <span class="apidocSignatureSpan">(index, query, _)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.neo4j.GraphDatabase.prototype.queryRelationshipIndex">
+            function <span class="apidocSignatureSpan">neo4j.GraphDatabase.prototype.</span>queryRelationshipIndex
+            <span class="apidocSignatureSpan">(index, query, _)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.neo4j.GraphDatabase.prototype.reviveJSON">
+            function <span class="apidocSignatureSpan">neo4j.GraphDatabase.prototype.</span>reviveJSON
+            <span class="apidocSignatureSpan">(key, val)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.neo4j.Node">module neo4j.Node</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.neo4j.Node.Node">
+            function <span class="apidocSignatureSpan">neo4j.</span>Node
+            <span class="apidocSignatureSpan">(db, data)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.neo4j.Node._fromJSON">
+            function <span class="apidocSignatureSpan">neo4j.Node.</span>_fromJSON
+            <span class="apidocSignatureSpan">(db, obj)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">neo4j.Node.</span>__super__</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.neo4j.Node.prototype">module neo4j.Node.prototype</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.neo4j.Node.prototype._createRelationship">
+            function <span class="apidocSignatureSpan">neo4j.Node.prototype.</span>_createRelationship
+            <span class="apidocSignatureSpan">(from, to, type, data, _)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.neo4j.Node.prototype._getRelationships">
+            function <span class="apidocSignatureSpan">neo4j.Node.prototype.</span>_getRelationships
+            <span class="apidocSignatureSpan">(direction, type, _)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.neo4j.Node.prototype.all">
+            function <span class="apidocSignatureSpan">neo4j.Node.prototype.</span>all
+            <span class="apidocSignatureSpan">(type, _)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.neo4j.Node.prototype.constructor">
+            function <span class="apidocSignatureSpan">neo4j.Node.prototype.</span>constructor
+            <span class="apidocSignatureSpan">(db, data)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.neo4j.Node.prototype.createRelationshipFrom">
+            function <span class="apidocSignatureSpan">neo4j.Node.prototype.</span>createRelationshipFrom
+            <span class="apidocSignatureSpan">(otherNode, type, data, cb)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.neo4j.Node.prototype.createRelationshipTo">
+            function <span class="apidocSignatureSpan">neo4j.Node.prototype.</span>createRelationshipTo
+            <span class="apidocSignatureSpan">(otherNode, type, data, cb)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.neo4j.Node.prototype.delete">
+            function <span class="apidocSignatureSpan">neo4j.Node.prototype.</span>delete
+            <span class="apidocSignatureSpan">(_, force)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.neo4j.Node.prototype.getRelationshipNodes">
+            function <span class="apidocSignatureSpan">neo4j.Node.prototype.</span>getRelationshipNodes
+            <span class="apidocSignatureSpan">(rels, _)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.neo4j.Node.prototype.getRelationships">
+            function <span class="apidocSignatureSpan">neo4j.Node.prototype.</span>getRelationships
+            <span class="apidocSignatureSpan">(type, _)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.neo4j.Node.prototype.incoming">
+            function <span class="apidocSignatureSpan">neo4j.Node.prototype.</span>incoming
+            <span class="apidocSignatureSpan">(type, _)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.neo4j.Node.prototype.index">
+            function <span class="apidocSignatureSpan">neo4j.Node.prototype.</span>index
+            <span class="apidocSignatureSpan">(index, key, value, _)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.neo4j.Node.prototype.outgoing">
+            function <span class="apidocSignatureSpan">neo4j.Node.prototype.</span>outgoing
+            <span class="apidocSignatureSpan">(type, _)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.neo4j.Node.prototype.path">
+            function <span class="apidocSignatureSpan">neo4j.Node.prototype.</span>path
+            <span class="apidocSignatureSpan">(to, type, direction, maxDepth, algorithm, _)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.neo4j.Node.prototype.save">
+            function <span class="apidocSignatureSpan">neo4j.Node.prototype.</span>save
+            <span class="apidocSignatureSpan">(_)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.neo4j.Node.prototype.toString">
+            function <span class="apidocSignatureSpan">neo4j.Node.prototype.</span>toString
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.neo4j.Node.prototype.unindex">
+            function <span class="apidocSignatureSpan">neo4j.Node.prototype.</span>unindex
+            <span class="apidocSignatureSpan">(index, key, value, callback)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.neo4j.PropertyContainer">module neo4j.PropertyContainer</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.neo4j.PropertyContainer.PropertyContainer">
+            function <span class="apidocSignatureSpan">neo4j.</span>PropertyContainer
+            <span class="apidocSignatureSpan">(db, data)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.neo4j.PropertyContainer._fromJSON">
+            function <span class="apidocSignatureSpan">neo4j.PropertyContainer.</span>_fromJSON
+            <span class="apidocSignatureSpan">(db, obj)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.neo4j.PropertyContainer.prototype">module neo4j.PropertyContainer.prototype</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.neo4j.PropertyContainer.prototype.del">
+            function <span class="apidocSignatureSpan">neo4j.PropertyContainer.prototype.</span>del
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.neo4j.PropertyContainer.prototype.delete">
+            function <span class="apidocSignatureSpan">neo4j.PropertyContainer.prototype.</span>delete
+            <span class="apidocSignatureSpan">(_)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.neo4j.PropertyContainer.prototype.equals">
+            function <span class="apidocSignatureSpan">neo4j.PropertyContainer.prototype.</span>equals
+            <span class="apidocSignatureSpan">(other)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.neo4j.PropertyContainer.prototype.toJSON">
+            function <span class="apidocSignatureSpan">neo4j.PropertyContainer.prototype.</span>toJSON
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.neo4j.Relationship">module neo4j.Relationship</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.neo4j.Relationship.Relationship">
+            function <span class="apidocSignatureSpan">neo4j.</span>Relationship
+            <span class="apidocSignatureSpan">(db, data, start, end)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.neo4j.Relationship._fromJSON">
+            function <span class="apidocSignatureSpan">neo4j.Relationship.</span>_fromJSON
+            <span class="apidocSignatureSpan">(db, obj)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">neo4j.Relationship.</span>__super__</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.neo4j.Relationship.prototype">module neo4j.Relationship.prototype</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.neo4j.Relationship.prototype.constructor">
+            function <span class="apidocSignatureSpan">neo4j.Relationship.prototype.</span>constructor
+            <span class="apidocSignatureSpan">(db, data, start, end)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.neo4j.Relationship.prototype.index">
+            function <span class="apidocSignatureSpan">neo4j.Relationship.prototype.</span>index
+            <span class="apidocSignatureSpan">(index, key, value, _)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.neo4j.Relationship.prototype.save">
+            function <span class="apidocSignatureSpan">neo4j.Relationship.prototype.</span>save
+            <span class="apidocSignatureSpan">(_)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.neo4j.Relationship.prototype.toString">
+            function <span class="apidocSignatureSpan">neo4j.Relationship.prototype.</span>toString
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.neo4j.Relationship.prototype.unindex">
+            function <span class="apidocSignatureSpan">neo4j.Relationship.prototype.</span>unindex
+            <span class="apidocSignatureSpan">(index, key, value, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">neo4j.Relationship.prototype.</span>end</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">neo4j.Relationship.prototype.</span>start</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.neo4j.util">module neo4j.util</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.neo4j.util.adjustError">
+            function <span class="apidocSignatureSpan">neo4j.util.</span>adjustError
+            <span class="apidocSignatureSpan">(error)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.neo4j.util.deserialize">
+            function <span class="apidocSignatureSpan">neo4j.util.</span>deserialize
+            <span class="apidocSignatureSpan">(o, separator)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.neo4j.util.serialize">
+            function <span class="apidocSignatureSpan">neo4j.util.</span>serialize
+            <span class="apidocSignatureSpan">(o, separator)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.neo4j.util.transform">
+            function <span class="apidocSignatureSpan">neo4j.util.</span>transform
+            <span class="apidocSignatureSpan">(val, db)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.neo4j.util.wrapRequest">
+            function <span class="apidocSignatureSpan">neo4j.util.</span>wrapRequest
+            <span class="apidocSignatureSpan">(_arg)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+</ol></div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.neo4j" id="apidoc.module.neo4j">module neo4j</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.neo4j.GraphDatabase" id="apidoc.element.neo4j.GraphDatabase">
+        function <span class="apidocSignatureSpan">neo4j.</span>GraphDatabase
+        <span class="apidocSignatureSpan">(opts)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function GraphDatabase(opts) {
+  this.reviveJSON = __bind(this.reviveJSON, this);
+  opts = ((typeof opts === &#x22;string&#x22;) ? {
+    url: opts
+  } : opts);
+  this.url = opts.url;
+  this._request = util.wrapRequest(opts);
+  this._root = null;
+  this._services = null;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+## Usage
+
+To start, create a new instance of the `GraphDatabase` class pointing to your
+Neo4j instance:
+
+```js
+var neo4j = require(&#x27;neo4j&#x27;);
+var db = new neo4j.<span class="apidocCodeKeywordSpan">GraphDatabase</span>(&#x27;http://localhost:7474&#x27;);
+```
+
+Node.js is asynchronous, which means this library is too: most functions take
+callbacks and return immediately, with the callbacks being invoked when the
+corresponding HTTP requests and responses finish.
+
+Here&#x27;s a simple example:
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.neo4j.Node" id="apidoc.element.neo4j.Node">
+        function <span class="apidocSignatureSpan">neo4j.</span>Node
+        <span class="apidocSignatureSpan">(db, data)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Node(db, data) {
+  Node.__super__.constructor.call(this, db, data);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.neo4j.PropertyContainer" id="apidoc.element.neo4j.PropertyContainer">
+        function <span class="apidocSignatureSpan">neo4j.</span>PropertyContainer
+        <span class="apidocSignatureSpan">(db, data)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function PropertyContainer(db, data) {
+  this.db = db;
+  this._request = db._request;
+  this._data = (data || {
+  });
+  this._data.self = ((((data != null) ? data.self : void 0)) || null);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.neo4j.Relationship" id="apidoc.element.neo4j.Relationship">
+        function <span class="apidocSignatureSpan">neo4j.</span>Relationship
+        <span class="apidocSignatureSpan">(db, data, start, end)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Relationship(db, data, start, end) {
+  var Node;
+  Relationship.__super__.constructor.call(this, db, data);
+  Node = require(&#x22;./Node&#x22;);
+  this._start = (start || new Node(db, {
+    self: data.start
+  }));
+  this._end = (end || new Node(db, {
+    self: data.end
+  }));
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.neo4j.deserialize" id="apidoc.element.neo4j.deserialize">
+        function <span class="apidocSignatureSpan">neo4j.</span>deserialize
+        <span class="apidocSignatureSpan">(o, separator)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">deserialize = function (o, separator) {
+  return unflatten(JSON.parse(o), separator);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.neo4j.serialize" id="apidoc.element.neo4j.serialize">
+        function <span class="apidocSignatureSpan">neo4j.</span>serialize
+        <span class="apidocSignatureSpan">(o, separator)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">serialize = function (o, separator) {
+  return JSON.stringify(flatten(o, separator));
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.neo4j.GraphDatabase" id="apidoc.module.neo4j.GraphDatabase">module neo4j.GraphDatabase</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.neo4j.GraphDatabase.GraphDatabase" id="apidoc.element.neo4j.GraphDatabase.GraphDatabase">
+        function <span class="apidocSignatureSpan">neo4j.</span>GraphDatabase
+        <span class="apidocSignatureSpan">(opts)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function GraphDatabase(opts) {
+  this.reviveJSON = __bind(this.reviveJSON, this);
+  opts = ((typeof opts === &#x22;string&#x22;) ? {
+    url: opts
+  } : opts);
+  this.url = opts.url;
+  this._request = util.wrapRequest(opts);
+  this._root = null;
+  this._services = null;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+## Usage
+
+To start, create a new instance of the `GraphDatabase` class pointing to your
+Neo4j instance:
+
+```js
+var neo4j = require(&#x27;neo4j&#x27;);
+var db = new neo4j.<span class="apidocCodeKeywordSpan">GraphDatabase</span>(&#x27;http://localhost:7474&#x27;);
+```
+
+Node.js is asynchronous, which means this library is too: most functions take
+callbacks and return immediately, with the callbacks being invoked when the
+corresponding HTTP requests and responses finish.
+
+Here&#x27;s a simple example:
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.neo4j.GraphDatabase.prototype" id="apidoc.module.neo4j.GraphDatabase.prototype">module neo4j.GraphDatabase.prototype</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.neo4j.GraphDatabase.prototype._getRoot" id="apidoc.element.neo4j.GraphDatabase.prototype._getRoot">
+        function <span class="apidocSignatureSpan">neo4j.GraphDatabase.prototype.</span>_getRoot
+        <span class="apidocSignatureSpan">(_)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function GraphDatabase_prototype__getRoot__1(_) {
+  var error, response, __this = this;
+  var __frame = {
+    name: &#x22;GraphDatabase_prototype__getRoot__1&#x22;,
+    line: 76
+  };
+  return __func(_, this, arguments, GraphDatabase_prototype__getRoot__1, 0, __frame, function __$GraphDatabase_prototype__getRoot__1
+() {
+    if ((__this._root != null)) {
+      return _(null, __this._root);
+    }
+    ;
+    return (function ___(__then) {
+      (function ___(_) {
+        __tryCatch(_, function __$GraphDatabase_prototype__getRoot__1() {
+          return __this._request.get(__this.url, __cb(_, __frame, 5, 33, function ___(__0, __1) {
+            response = __1;
+            if ((response.statusCode !== status.OK)) {
+              return _(response);
+            }
+            ;
+            return _(null, __this._root = response.body);
+          }, true));
+        });
+      })(function ___(_error, __result) {
+        __catch(function __$GraphDatabase_prototype__getRoot__1() {
+          if (_error) {
+            error = _error;
+            return _(adjustError(error));
+          }
+           else {
+            _(null, __result);
+          }
+          ;
+        }, _);
+      });
+    })(function ___() {
+      __tryCatch(_, function __$GraphDatabase_prototype__getRoot__1() {
+        _();
+      });
+    });
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.neo4j.GraphDatabase.prototype._purgeCache" id="apidoc.element.neo4j.GraphDatabase.prototype._purgeCache">
+        function <span class="apidocSignatureSpan">neo4j.GraphDatabase.prototype.</span>_purgeCache
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_purgeCache = function () {
+  this._root = null;
+  return this._services = null;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.neo4j.GraphDatabase.prototype._toJSON" id="apidoc.element.neo4j.GraphDatabase.prototype._toJSON">
+        function <span class="apidocSignatureSpan">neo4j.GraphDatabase.prototype.</span>_toJSON
+        <span class="apidocSignatureSpan">(obj)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_toJSON = function (obj) {
+  var json;
+  json = {
+  };
+  json[JSON_KEY] = {
+    version: PACKAGE.version,
+    constructor: obj.constructor.name
+  };
+  return json;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  });
+};
+PropertyContainer.prototype.del = function() {
+  return this[&#x22;delete&#x22;].apply(this, arguments);
+};
+PropertyContainer.prototype.toJSON = function() {
+  var json;
+  json = this.db.<span class="apidocCodeKeywordSpan">_toJSON</span>(this);
+  json._data = this._data;
+  return json;
+};
+PropertyContainer._fromJSON = function(db, obj) {
+  var _data;
+  _data = obj._data;
+  return new this(db, _data);
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.neo4j.GraphDatabase.prototype.createNode" id="apidoc.element.neo4j.GraphDatabase.prototype.createNode">
+        function <span class="apidocSignatureSpan">neo4j.GraphDatabase.prototype.</span>createNode
+        <span class="apidocSignatureSpan">(data)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">createNode = function (data) {
+  var node;
+  data = (data || {
+  });
+  node = new Node(this, {
+    data: data
+  });
+  return node;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+Node.js is asynchronous, which means this library is too: most functions take
+callbacks and return immediately, with the callbacks being invoked when the
+corresponding HTTP requests and responses finish.
+
+Here&#x27;s a simple example:
+
+```js
+var node = db.<span class="apidocCodeKeywordSpan">createNode</span>({hello: &#x27;world&#x27;});     // instantaneous, but...
+node.save(function (err, node) {    // ...this is what actually persists.
+    if (err) {
+        console.error(&#x27;Error saving new node to database:&#x27;, err);
+    } else {
+        console.log(&#x27;Node saved to database with id:&#x27;, node.id);
+    }
+});
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.neo4j.GraphDatabase.prototype.createNodeIndex" id="apidoc.element.neo4j.GraphDatabase.prototype.createNodeIndex">
+        function <span class="apidocSignatureSpan">neo4j.GraphDatabase.prototype.</span>createNodeIndex
+        <span class="apidocSignatureSpan">(name, config, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">createNodeIndex = function (name, config, callback) {
+  if ((typeof config === &#x22;function&#x22;)) {
+    callback = config;
+    config = null;
+  }
+  ;
+  return actual.call(this, name, config, callback);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.neo4j.GraphDatabase.prototype.createRelationship" id="apidoc.element.neo4j.GraphDatabase.prototype.createRelationship">
+        function <span class="apidocSignatureSpan">neo4j.GraphDatabase.prototype.</span>createRelationship
+        <span class="apidocSignatureSpan">(startNode, endNode, type, _)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function GraphDatabase_prototype_createRelationship__8(startNode, endNode, type, _) {
+  var __frame = {
+    name: &#x22;GraphDatabase_prototype_createRelationship__8&#x22;,
+    line: 44
+  };
+  return __func(_, this, arguments, GraphDatabase_prototype_createRelationship__8, 3, __frame, function __$GraphDatabase_prototype_createRelationship__8
+() {
+    _();
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.neo4j.GraphDatabase.prototype.createRelationshipIndex" id="apidoc.element.neo4j.GraphDatabase.prototype.createRelationshipIndex">
+        function <span class="apidocSignatureSpan">neo4j.GraphDatabase.prototype.</span>createRelationshipIndex
+        <span class="apidocSignatureSpan">(name, config, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">createRelationshipIndex = function (name, config, callback) {
+  if ((typeof config === &#x22;function&#x22;)) {
+    callback = config;
+    config = null;
+  }
+  ;
+  return actual.call(this, name, config, callback);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.neo4j.GraphDatabase.prototype.deleteNodeIndex" id="apidoc.element.neo4j.GraphDatabase.prototype.deleteNodeIndex">
+        function <span class="apidocSignatureSpan">neo4j.GraphDatabase.prototype.</span>deleteNodeIndex
+        <span class="apidocSignatureSpan">(name, _)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function GraphDatabase_prototype_deleteNodeIndex__16(name, _) {
+  var error, response, services, __this = this;
+  var __frame = {
+    name: &#x22;GraphDatabase_prototype_deleteNodeIndex__16&#x22;,
+    line: 501
+  };
+  return __func(_, this, arguments, GraphDatabase_prototype_deleteNodeIndex__16, 1, __frame, function __$GraphDatabase_prototype_deleteNodeIndex__16
+() {
+    return (function ___(__then) {
+      (function ___(_) {
+        __tryCatch(_, function __$GraphDatabase_prototype_deleteNodeIndex__16() {
+          return __this.getServices(__cb(_, __frame, 2, 24, function ___(__0, __1) {
+            services = __1;
+            return __this._request.del({
+              url: (((&#x22;&#x22; + services.node_index) + &#x22;/&#x22;) + (encodeURIComponent(name)))
+            }, __cb(_, __frame, 3, 33, function ___(__0, __2) {
+              response = __2;
+              if ((response.statusCode !== status.NO_CONTENT)) {
+                return _(response);
+              }
+              ;
+              __then();
+            }, true));
+          }, true));
+        });
+      })(function ___(_error, __result) {
+        __catch(function __$GraphDatabase_prototype_deleteNodeIndex__16() {
+          if (_error) {
+            error = _error;
+            return _(adjustError(error));
+          }
+           else {
+            _(null, __result);
+          }
+          ;
+        }, _);
+      });
+    })(function ___() {
+      __tryCatch(_, function __$GraphDatabase_prototype_deleteNodeIndex__16() {
+        _();
+      });
+    });
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.neo4j.GraphDatabase.prototype.deleteRelationshipIndex" id="apidoc.element.neo4j.GraphDatabase.prototype.deleteRelationshipIndex">
+        function <span class="apidocSignatureSpan">neo4j.GraphDatabase.prototype.</span>deleteRelationshipIndex
+        <span class="apidocSignatureSpan">(name, _)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function GraphDatabase_prototype_deleteRelationshipIndex__19(name, _) {
+  var error, response, services, __this = this;
+  var __frame = {
+    name: &#x22;GraphDatabase_prototype_deleteRelationshipIndex__19&#x22;,
+    line: 594
+  };
+  return __func(_, this, arguments, GraphDatabase_prototype_deleteRelationshipIndex__19, 1, __frame, function __$GraphDatabase_prototype_deleteRelationshipIndex__19
+() {
+    return (function ___(__then) {
+      (function ___(_) {
+        __tryCatch(_, function __$GraphDatabase_prototype_deleteRelationshipIndex__19() {
+          return __this.getServices(__cb(_, __frame, 2, 24, function ___(__0, __1) {
+            services = __1;
+            return __this._request.del({
+              url: (((&#x22;&#x22; + services.relationship_index) + &#x22;/&#x22;) + (encodeURIComponent(name)))
+            }, __cb(_, __frame, 3, 33, function ___(__0, __2) {
+              response = __2;
+              if ((response.statusCode !== status.NO_CONTENT)) {
+                return _(response);
+              }
+              ;
+              __then();
+            }, true));
+          }, true));
+        });
+      })(function ___(_error, __result) {
+        __catch(function __$GraphDatabase_prototype_deleteRelationshipIndex__19() {
+          if (_error) {
+            error = _error;
+            return _(adjustError(error));
+          }
+           else {
+            _(null, __result);
+          }
+          ;
+        }, _);
+      });
+    })(function ___() {
+      __tryCatch(_, function __$GraphDatabase_prototype_deleteRelationshipIndex__19() {
+        _();
+      });
+    });
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.neo4j.GraphDatabase.prototype.execute" id="apidoc.element.neo4j.GraphDatabase.prototype.execute">
+        function <span class="apidocSignatureSpan">neo4j.GraphDatabase.prototype.</span>execute
+        <span class="apidocSignatureSpan">(script, params, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">execute = function (script, params, callback) {
+  if ((typeof params === &#x22;function&#x22;)) {
+    callback = params;
+    params = null;
+  }
+  ;
+  return actual.call(this, script, params, callback);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.neo4j.GraphDatabase.prototype.fromJSON" id="apidoc.element.neo4j.GraphDatabase.prototype.fromJSON">
+        function <span class="apidocSignatureSpan">neo4j.GraphDatabase.prototype.</span>fromJSON
+        <span class="apidocSignatureSpan">(obj)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">fromJSON = function (obj) {
+  var Constructor, meta;
+  meta = ((obj != null) ? obj[JSON_KEY] : void 0);
+  if ((typeof (((meta != null) ? meta.constructor : void 0)) !== &#x22;string&#x22;)) {
+    throw new Error((&#x22;Invalid JSON object: &#x22; + (JSON.stringify(obj))));
+  }
+  ;
+  Constructor = require((&#x22;./&#x22; + meta.constructor));
+  return Constructor._fromJSON(this, obj);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.neo4j.GraphDatabase.prototype.getIndexedNode" id="apidoc.element.neo4j.GraphDatabase.prototype.getIndexedNode">
+        function <span class="apidocSignatureSpan">neo4j.GraphDatabase.prototype.</span>getIndexedNode
+        <span class="apidocSignatureSpan">(index, property, value, _)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function GraphDatabase_prototype_getIndexedNode__5(index, property, value, _) {
+  var error, node, nodes, __this = this;
+  var __frame = {
+    name: &#x22;GraphDatabase_prototype_getIndexedNode__5&#x22;,
+    line: 206
+  };
+  return __func(_, this, arguments, GraphDatabase_prototype_getIndexedNode__5, 3, __frame, function __$GraphDatabase_prototype_getIndexedNode__5
+() {
+    return (function ___(__then) {
+      (function ___(_) {
+        __tryCatch(_, function __$GraphDatabase_prototype_getIndexedNode__5() {
+          return __this.getIndexedNodes(index, property, value, __cb(_, __frame, 2, 21, function ___(__0, __1) {
+            nodes = __1;
+            node = null;
+            if ((nodes &#x26;&#x26; (nodes.length &#x3e; 0))) {
+              node = nodes[0];
+            }
+            ;
+            return _(null, node);
+          }, true));
+        });
+      })(function ___(_error, __result) {
+        __catch(function __$GraphDatabase_prototype_getIndexedNode__5() {
+          if (_error) {
+            error = _error;
+            return _(adjustError(error));
+          }
+           else {
+            _(null, __result);
+          }
+          ;
+        }, _);
+      });
+    })(function ___() {
+      __tryCatch(_, function __$GraphDatabase_prototype_getIndexedNode__5() {
+        _();
+      });
+    });
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.neo4j.GraphDatabase.prototype.getIndexedNodes" id="apidoc.element.neo4j.GraphDatabase.prototype.getIndexedNodes">
+        function <span class="apidocSignatureSpan">neo4j.GraphDatabase.prototype.</span>getIndexedNodes
+        <span class="apidocSignatureSpan">(index, property, value, _)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function GraphDatabase_prototype_getIndexedNodes__6(index, property, value, _) {
+  var error, key, response, services, url, val, __this = this;
+  var __frame = {
+    name: &#x22;GraphDatabase_prototype_getIndexedNodes__6&#x22;,
+    line: 232
+  };
+  return __func(_, this, arguments, GraphDatabase_prototype_getIndexedNodes__6, 3, __frame, function __$GraphDatabase_prototype_getIndexedNodes__6
+() {
+    return (function ___(__then) {
+      (function ___(_) {
+        __tryCatch(_, function __$GraphDatabase_prototype_getIndexedNodes__6() {
+          return __this.getServices(__cb(_, __frame, 2, 24, function ___(__0, __1) {
+            services = __1;
+            key = encodeURIComponent(property);
+            val = encodeURIComponent(value);
+            url = (((((((&#x22;&#x22; + services.node_index) + &#x22;/&#x22;) + index) + &#x22;/&#x22;) + key) + &#x22;/&#x22;) + val);
+            return __this._request.get(url, __cb(_, __frame, 8, 33, function ___(__0, __2) {
+              response = __2;
+              if ((response.statusCode !== status.OK)) {
+                return _(response);
+              }
+              ;
+              return _(null, response.body.map((function(_this) {
+                return function(node) {
+                  return new Node(_this, node);
+                };
+              })(__this)));
+            }, true));
+          }, true));
+        });
+      })(function ___(_error, __result) {
+        __catch(function __$GraphDatabase_prototype_getIndexedNodes__6() {
+          if (_error) {
+            error = _error;
+            return _(adjustError(error));
+          }
+           else {
+            _(null, __result);
+          }
+          ;
+        }, _);
+      });
+    })(function ___() {
+      __tryCatch(_, function __$GraphDatabase_prototype_getIndexedNodes__6() {
+        _();
+      });
+    });
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.neo4j.GraphDatabase.prototype.getIndexedRelationship" id="apidoc.element.neo4j.GraphDatabase.prototype.getIndexedRelationship">
+        function <span class="apidocSignatureSpan">neo4j.GraphDatabase.prototype.</span>getIndexedRelationship
+        <span class="apidocSignatureSpan">(index, property, value, _)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function GraphDatabase_prototype_getIndexedRelationship__11(index, property, value, _) {
+  var error, relationships, __this = this;
+  var __frame = {
+    name: &#x22;GraphDatabase_prototype_getIndexedRelationship__11&#x22;,
+    line: 350
+  };
+  return __func(_, this, arguments, GraphDatabase_prototype_getIndexedRelationship__11, 3, __frame, function __$GraphDatabase_prototype_getIndexedRelationship__11
+() {
+    return (function ___(__then) {
+      (function ___(_) {
+        __tryCatch(_, function __$GraphDatabase_prototype_getIndexedRelationship__11() {
+          return __this.getIndexedRelationships(index, property, value, __cb(_, __frame, 2, 29, function ___(__0, __1) {
+            relationships = __1;
+            return _(null, ((((relationships != null) ? relationships[0] : void 0)) || null));
+          }, true));
+        });
+      })(function ___(_error, __result) {
+        __catch(function __$GraphDatabase_prototype_getIndexedRelationship__11() {
+          if (_error) {
+            error = _error;
+            return _(adjustError(error));
+          }
+           else {
+            _(null, __result);
+          }
+          ;
+        }, _);
+      });
+    })(function ___() {
+      __tryCatch(_, function __$GraphDatabase_prototype_getIndexedRelationship__11() {
+        _();
+      });
+    });
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.neo4j.GraphDatabase.prototype.getIndexedRelationships" id="apidoc.element.neo4j.GraphDatabase.prototype.getIndexedRelationships">
+        function <span class="apidocSignatureSpan">neo4j.GraphDatabase.prototype.</span>getIndexedRelationships
+        <span class="apidocSignatureSpan">(index, property, value, _)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function GraphDatabase_prototype_getIndexedRelationships__12(index, property, value, _) {
+  var error, key, response, services, url, val, __this = this;
+  var __frame = {
+    name: &#x22;GraphDatabase_prototype_getIndexedRelationships__12&#x22;,
+    line: 373
+  };
+  return __func(_, this, arguments, GraphDatabase_prototype_getIndexedRelationships__12, 3, __frame, function __$GraphDatabase_prototype_getIndexedRelationships__12
+() {
+    return (function ___(__then) {
+      (function ___(_) {
+        __tryCatch(_, function __$GraphDatabase_prototype_getIndexedRelationships__12() {
+          return __this.getServices(__cb(_, __frame, 2, 24, function ___(__0, __1) {
+            services = __1;
+            key = encodeURIComponent(property);
+            val = encodeURIComponent(value);
+            url = (((((((&#x22;&#x22; + services.relationship_index) + &#x22;/&#x22;) + index) + &#x22;/&#x22;) + key) + &#x22;/&#x22;) + val);
+            return __this._request.get(url, __cb(_, __frame, 8, 33, function ___(__0, __2) {
+              response = __2;
+              if ((response.statusCode !== status.OK)) {
+                return _(response);
+              }
+              ;
+              return _(null, response.body.map((function(_this) {
+                return function(relationship) {
+                  return new Relationship(_this, relationship);
+                };
+              })(__this)));
+            }, true));
+          }, true));
+        });
+      })(function ___(_error, __result) {
+        __catch(function __$GraphDatabase_prototype_getIndexedRelationships__12() {
+          if (_error) {
+            error = _error;
+            return _(adjustError(error));
+          }
+           else {
+            _(null, __result);
+          }
+          ;
+        }, _);
+      });
+    })(function ___() {
+      __tryCatch(_, function __$GraphDatabase_prototype_getIndexedRelationships__12() {
+        _();
+      });
+    });
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.neo4j.GraphDatabase.prototype.getNode" id="apidoc.element.neo4j.GraphDatabase.prototype.getNode">
+        function <span class="apidocSignatureSpan">neo4j.GraphDatabase.prototype.</span>getNode
+        <span class="apidocSignatureSpan">(url, _)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function GraphDatabase_prototype_getNode__3(url, _) {
+  var error, response, __this = this;
+  var __frame = {
+    name: &#x22;GraphDatabase_prototype_getNode__3&#x22;,
+    line: 149
+  };
+  return __func(_, this, arguments, GraphDatabase_prototype_getNode__3, 1, __frame, function __$GraphDatabase_prototype_getNode__3
+() {
+    return (function ___(__then) {
+      (function ___(_) {
+        __tryCatch(_, function __$GraphDatabase_prototype_getNode__3() {
+          return __this._request.get(url, __cb(_, __frame, 2, 33, function ___(__0, __1) {
+            response = __1;
+            if ((response.statusCode !== status.OK)) {
+              if ((response.statusCode === status.NOT_FOUND)) {
+                return _(new Error((&#x22;No node at &#x22; + url)));
+              }
+              ;
+              return _(response);
+            }
+            ;
+            return _(null, new Node(__this, response.body));
+          }, true));
+        });
+      })(function ___(_error, __result) {
+        __catch(function __$GraphDatabase_prototype_getNode__3() {
+          if (_error) {
+            error = _error;
+            return _(adjustError(error));
+          }
+           else {
+            _(null, __result);
+          }
+          ;
+        }, _);
+      });
+    })(function ___() {
+      __tryCatch(_, function __$GraphDatabase_prototype_getNode__3() {
+        _();
+      });
+    });
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.neo4j.GraphDatabase.prototype.getNodeById" id="apidoc.element.neo4j.GraphDatabase.prototype.getNodeById">
+        function <span class="apidocSignatureSpan">neo4j.GraphDatabase.prototype.</span>getNodeById
+        <span class="apidocSignatureSpan">(id, _)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function GraphDatabase_prototype_getNodeById__4(id, _) {
+  var error, node, services, url, __this = this;
+  var __frame = {
+    name: &#x22;GraphDatabase_prototype_getNodeById__4&#x22;,
+    line: 178
+  };
+  return __func(_, this, arguments, GraphDatabase_prototype_getNodeById__4, 1, __frame, function __$GraphDatabase_prototype_getNodeById__4
+() {
+    return (function ___(__then) {
+      (function ___(_) {
+        __tryCatch(_, function __$GraphDatabase_prototype_getNodeById__4() {
+          return __this.getServices(__cb(_, __frame, 2, 24, function ___(__0, __1) {
+            services = __1;
+            url = (((&#x22;&#x22; + services.node) + &#x22;/&#x22;) + id);
+            return __this.getNode(url, __cb(_, __frame, 4, 20, function ___(__0, __2) {
+              node = __2;
+              return _(null, node);
+            }, true));
+          }, true));
+        });
+      })(function ___(_error, __result) {
+        __catch(function __$GraphDatabase_prototype_getNodeById__4() {
+          if (_error) {
+            error = _error;
+            return _(adjustError(error));
+          }
+           else {
+            _(null, __result);
+          }
+          ;
+        }, _);
+      });
+    })(function ___() {
+      __tryCatch(_, function __$GraphDatabase_prototype_getNodeById__4() {
+        _();
+      });
+    });
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.neo4j.GraphDatabase.prototype.getNodeIndexes" id="apidoc.element.neo4j.GraphDatabase.prototype.getNodeIndexes">
+        function <span class="apidocSignatureSpan">neo4j.GraphDatabase.prototype.</span>getNodeIndexes
+        <span class="apidocSignatureSpan">(_)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function GraphDatabase_prototype_getNodeIndexes__14(_) {
+  var arr, error, map, name, props, response, services, _ref, __this = this;
+  var __frame = {
+    name: &#x22;GraphDatabase_prototype_getNodeIndexes__14&#x22;,
+    line: 440
+  };
+  return __func(_, this, arguments, GraphDatabase_prototype_getNodeIndexes__14, 0, __frame, function __$GraphDatabase_prototype_getNodeIndexes__14
+() {
+    return (function ___(__then) {
+      (function ___(_) {
+        __tryCatch(_, function __$GraphDatabase_prototype_getNodeIndexes__14() {
+          return __this.getServices(__cb(_, __frame, 2, 24, function ___(__0, __1) {
+            services = __1;
+            return __this._request.get(services.node_index, __cb(_, __frame, 3, 33, function ___(__0, __2) {
+              response = __2;
+              if ((((_ref = response.statusCode) !== status.OK) &#x26;&#x26; (_ref !== status.NO_CONTENT))) {
+                return _(response);
+              }
+              ;
+              map = (response.body || {
+              });
+              arr = [];
+              for (name in map) {
+                props = map[name];
+                arr.push(name);
+                arr[name] = props;
+              };
+              return _(null, arr);
+            }, true));
+          }, true));
+        });
+      })(function ___(_error, __result) {
+        __catch(function __$GraphDatabase_prototype_getNodeIndexes__14() {
+          if (_error) {
+            error = _error;
+            return _(adjustError(error));
+          }
+           else {
+            _(null, __result);
+          }
+          ;
+        }, _);
+      });
+    })(function ___() {
+      __tryCatch(_, function __$GraphDatabase_prototype_getNodeIndexes__14() {
+        _();
+      });
+    });
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.neo4j.GraphDatabase.prototype.getRelationship" id="apidoc.element.neo4j.GraphDatabase.prototype.getRelationship">
+        function <span class="apidocSignatureSpan">neo4j.GraphDatabase.prototype.</span>getRelationship
+        <span class="apidocSignatureSpan">(url, _)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function GraphDatabase_prototype_getRelationship__9(url, _) {
+  var error, response, __this = this;
+  var __frame = {
+    name: &#x22;GraphDatabase_prototype_getRelationship__9&#x22;,
+    line: 300
+  };
+  return __func(_, this, arguments, GraphDatabase_prototype_getRelationship__9, 1, __frame, function __$GraphDatabase_prototype_getRelationship__9
+() {
+    return (function ___(__then) {
+      (function ___(_) {
+        __tryCatch(_, function __$GraphDatabase_prototype_getRelationship__9() {
+          return __this._request.get(url, __cb(_, __frame, 2, 33, function ___(__0, __1) {
+            response = __1;
+            if ((response.statusCode !== status.OK)) {
+              return _(response);
+            }
+            ;
+            return _(null, new Relationship(__this, response.body));
+          }, true));
+        });
+      })(function ___(_error, __result) {
+        __catch(function __$GraphDatabase_prototype_getRelationship__9() {
+          if (_error) {
+            error = _error;
+            return _(adjustError(error));
+          }
+           else {
+            _(null, __result);
+          }
+          ;
+        }, _);
+      });
+    })(function ___() {
+      __tryCatch(_, function __$GraphDatabase_prototype_getRelationship__9() {
+        _();
+      });
+    });
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.neo4j.GraphDatabase.prototype.getRelationshipById" id="apidoc.element.neo4j.GraphDatabase.prototype.getRelationshipById">
+        function <span class="apidocSignatureSpan">neo4j.GraphDatabase.prototype.</span>getRelationshipById
+        <span class="apidocSignatureSpan">(id, _)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function GraphDatabase_prototype_getRelationshipById__10(id, _) {
+  var relationshipURL, services, url, __this = this;
+  var __frame = {
+    name: &#x22;GraphDatabase_prototype_getRelationshipById__10&#x22;,
+    line: 325
+  };
+  return __func(_, this, arguments, GraphDatabase_prototype_getRelationshipById__10, 1, __frame, function __$GraphDatabase_prototype_getRelationshipById__10
+() {
+    return __this.getServices(__cb(_, __frame, 1, 20, function ___(__0, __1) {
+      services = __1;
+      relationshipURL = services.node.replace(&#x22;node&#x22;, &#x22;relationship&#x22;);
+      url = (((&#x22;&#x22; + relationshipURL) + &#x22;/&#x22;) + id);
+      return __this.getRelationship(url, __cb(_, __frame, 5, 9, _, true));
+    }, true));
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.neo4j.GraphDatabase.prototype.getRelationshipIndexes" id="apidoc.element.neo4j.GraphDatabase.prototype.getRelationshipIndexes">
+        function <span class="apidocSignatureSpan">neo4j.GraphDatabase.prototype.</span>getRelationshipIndexes
+        <span class="apidocSignatureSpan">(_)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function GraphDatabase_prototype_getRelationshipIndexes__17(_) {
+  var arr, error, map, name, props, response, services, _ref, __this = this;
+  var __frame = {
+    name: &#x22;GraphDatabase_prototype_getRelationshipIndexes__17&#x22;,
+    line: 533
+  };
+  return __func(_, this, arguments, GraphDatabase_prototype_getRelationshipIndexes__17, 0, __frame, function __$GraphDatabase_prototype_getRelationshipIndexes__17
+() {
+    return (function ___(__then) {
+      (function ___(_) {
+        __tryCatch(_, function __$GraphDatabase_prototype_getRelationshipIndexes__17() {
+          return __this.getServices(__cb(_, __frame, 2, 24, function ___(__0, __1) {
+            services = __1;
+            return __this._request.get(services.relationship_index, __cb(_, __frame, 3, 33, function ___(__0, __2) {
+              response = __2;
+              if ((((_ref = response.statusCode) !== status.OK) &#x26;&#x26; (_ref !== status.NO_CONTENT))) {
+                return _(response);
+              }
+              ;
+              map = (response.body || {
+              });
+              arr = [];
+              for (name in map) {
+                props = map[name];
+                arr.push(name);
+                arr[name] = props;
+              };
+              return _(null, arr);
+            }, true));
+          }, true));
+        });
+      })(function ___(_error, __result) {
+        __catch(function __$GraphDatabase_prototype_getRelationshipIndexes__17() {
+          if (_error) {
+            error = _error;
+            return _(adjustError(error));
+          }
+           else {
+            _(null, __result);
+          }
+          ;
+        }, _);
+      });
+    })(function ___() {
+      __tryCatch(_, function __$GraphDatabase_prototype_getRelationshipIndexes__17() {
+        _();
+      });
+    });
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.neo4j.GraphDatabase.prototype.getServices" id="apidoc.element.neo4j.GraphDatabase.prototype.getServices">
+        function <span class="apidocSignatureSpan">neo4j.GraphDatabase.prototype.</span>getServices
+        <span class="apidocSignatureSpan">(_)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function GraphDatabase_prototype_getServices__2(_) {
+  var error, response, root, __this = this;
+  var __frame = {
+    name: &#x22;GraphDatabase_prototype_getServices__2&#x22;,
+    line: 99
+  };
+  return __func(_, this, arguments, GraphDatabase_prototype_getServices__2, 0, __frame, function __$GraphDatabase_prototype_getServices__2
+() {
+    if ((__this._services != null)) {
+      return _(null, __this._services);
+    }
+    ;
+    return (function ___(__then) {
+      (function ___(_) {
+        __tryCatch(_, function __$GraphDatabase_prototype_getServices__2() {
+          return __this._getRoot(__cb(_, __frame, 5, 20, function ___(__0, __1) {
+            root = __1;
+            return __this._request.get(root.data, __cb(_, __frame, 6, 33, function ___(__0, __2) {
+              response = __2;
+              if ((response.statusCode !== status.OK)) {
+                return _(response);
+              }
+              ;
+              return _(null, __this._services = response.body);
+            }, true));
+          }, true));
+        });
+      })(function ___(_error, __result) {
+        __catch(function __$GraphDatabase_prototype_getServices__2() {
+          if (_error) {
+            error = _error;
+            return _(adjustError(error));
+          }
+           else {
+            _(null, __result);
+          }
+          ;
+        }, _);
+      });
+    })(function ___() {
+      __tryCatch(_, function __$GraphDatabase_prototype_getServices__2() {
+        _();
+      });
+    });
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+      };
+    }
+    ;
+    __then();
+  }, true));
+}
+ else {
+  return __this.db.<span class="apidocCodeKeywordSpan">getServices</span>(__cb(_, __frame, 19, 31, function ___(__0, __2) {
+    services = __2;
+    return __this._request.post({
+      uri: services.node,
+      json: __this.data
+    }, __cb(_, __frame, 21, 37, function ___(__0, __3) {
+      response = __3;
+      if ((response.statusCode !== status.CREATED)) {
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.neo4j.GraphDatabase.prototype.query" id="apidoc.element.neo4j.GraphDatabase.prototype.query">
+        function <span class="apidocSignatureSpan">neo4j.GraphDatabase.prototype.</span>query
+        <span class="apidocSignatureSpan">(query, params, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">query = function (query, params, callback) {
+  if (((typeof query === &#x22;function&#x22;) &#x26;&#x26; (typeof params === &#x22;string&#x22;))) {
+    console.warn(((&#x22;neo4j.GraphDatabase::query()’s signature is &#x22; + &#x22;now (query, params, callback). Please update your code!\n&#x22;) +
+new Error().stack.split(&#x22;\n&#x22;)[2]));
+    callback = query;
+    query = params;
+    params = null;
+  }
+   else if ((typeof params === &#x22;function&#x22;)) {
+    callback = params;
+    params = null;
+  }
+
+  ;
+  return actual.call(this, query, params, callback);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.neo4j.GraphDatabase.prototype.queryNodeIndex" id="apidoc.element.neo4j.GraphDatabase.prototype.queryNodeIndex">
+        function <span class="apidocSignatureSpan">neo4j.GraphDatabase.prototype.</span>queryNodeIndex
+        <span class="apidocSignatureSpan">(index, query, _)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function GraphDatabase_prototype_queryNodeIndex__7(index, query, _) {
+  var error, response, services, url, __this = this;
+  var __frame = {
+    name: &#x22;GraphDatabase_prototype_queryNodeIndex__7&#x22;,
+    line: 264
+  };
+  return __func(_, this, arguments, GraphDatabase_prototype_queryNodeIndex__7, 2, __frame, function __$GraphDatabase_prototype_queryNodeIndex__7
+() {
+    return (function ___(__then) {
+      (function ___(_) {
+        __tryCatch(_, function __$GraphDatabase_prototype_queryNodeIndex__7() {
+          return __this.getServices(__cb(_, __frame, 2, 24, function ___(__0, __1) {
+            services = __1;
+            url = (((((&#x22;&#x22; + services.node_index) + &#x22;/&#x22;) + index) + &#x22;?query=&#x22;) + (encodeURIComponent(query)));
+            return __this._request.get(url, __cb(_, __frame, 5, 33, function ___(__0, __2) {
+              response = __2;
+              if ((response.statusCode !== status.OK)) {
+                return _(response);
+              }
+              ;
+              return _(null, response.body.map((function(_this) {
+                return function(node) {
+                  return new Node(_this, node);
+                };
+              })(__this)));
+            }, true));
+          }, true));
+        });
+      })(function ___(_error, __result) {
+        __catch(function __$GraphDatabase_prototype_queryNodeIndex__7() {
+          if (_error) {
+            error = _error;
+            return _(adjustError(error));
+          }
+           else {
+            _(null, __result);
+          }
+          ;
+        }, _);
+      });
+    })(function ___() {
+      __tryCatch(_, function __$GraphDatabase_prototype_queryNodeIndex__7() {
+        _();
+      });
+    });
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.neo4j.GraphDatabase.prototype.queryRelationshipIndex" id="apidoc.element.neo4j.GraphDatabase.prototype.queryRelationshipIndex">
+        function <span class="apidocSignatureSpan">neo4j.GraphDatabase.prototype.</span>queryRelationshipIndex
+        <span class="apidocSignatureSpan">(index, query, _)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function GraphDatabase_prototype_queryRelationshipIndex__13(index, query, _) {
+  var error, response, services, url, __this = this;
+  var __frame = {
+    name: &#x22;GraphDatabase_prototype_queryRelationshipIndex__13&#x22;,
+    line: 405
+  };
+  return __func(_, this, arguments, GraphDatabase_prototype_queryRelationshipIndex__13, 2, __frame, function __$GraphDatabase_prototype_queryRelationshipIndex__13
+() {
+    return (function ___(__then) {
+      (function ___(_) {
+        __tryCatch(_, function __$GraphDatabase_prototype_queryRelationshipIndex__13() {
+          return __this.getServices(__cb(_, __frame, 2, 24, function ___(__0, __1) {
+            services = __1;
+            url = (((((&#x22;&#x22; + services.relationship_index) + &#x22;/&#x22;) + index) + &#x22;?query=&#x22;) + (encodeURIComponent(query)));
+            return __this._request.get(url, __cb(_, __frame, 5, 33, function ___(__0, __2) {
+              response = __2;
+              if ((response.statusCode !== status.OK)) {
+                return _(response);
+              }
+              ;
+              return _(null, response.body.map((function(_this) {
+                return function(relationship) {
+                  return new Relationship(_this, relationship);
+                };
+              })(__this)));
+            }, true));
+          }, true));
+        });
+      })(function ___(_error, __result) {
+        __catch(function __$GraphDatabase_prototype_queryRelationshipIndex__13() {
+          if (_error) {
+            error = _error;
+            return _(adjustError(error));
+          }
+           else {
+            _(null, __result);
+          }
+          ;
+        }, _);
+      });
+    })(function ___() {
+      __tryCatch(_, function __$GraphDatabase_prototype_queryRelationshipIndex__13() {
+        _();
+      });
+    });
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.neo4j.GraphDatabase.prototype.reviveJSON" id="apidoc.element.neo4j.GraphDatabase.prototype.reviveJSON">
+        function <span class="apidocSignatureSpan">neo4j.GraphDatabase.prototype.</span>reviveJSON
+        <span class="apidocSignatureSpan">(key, val)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">reviveJSON = function (key, val) {
+  var _ref;
+  if ((typeof (((val != null) ? (((_ref = val[JSON_KEY]) != null) ? _ref.constructor : void 0) : void 0)) === &#x22;string&#x22;)) {
+    return this.fromJSON(val);
+  }
+   else {
+    return val;
+  }
+  ;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.neo4j.Node" id="apidoc.module.neo4j.Node">module neo4j.Node</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.neo4j.Node.Node" id="apidoc.element.neo4j.Node.Node">
+        function <span class="apidocSignatureSpan">neo4j.</span>Node
+        <span class="apidocSignatureSpan">(db, data)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Node(db, data) {
+  Node.__super__.constructor.call(this, db, data);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.neo4j.Node._fromJSON" id="apidoc.element.neo4j.Node._fromJSON">
+        function <span class="apidocSignatureSpan">neo4j.Node.</span>_fromJSON
+        <span class="apidocSignatureSpan">(db, obj)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_fromJSON = function (db, obj) {
+  var _data;
+  _data = obj._data;
+  return new this(db, _data);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.neo4j.Node.prototype" id="apidoc.module.neo4j.Node.prototype">module neo4j.Node.prototype</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.neo4j.Node.prototype._createRelationship" id="apidoc.element.neo4j.Node.prototype._createRelationship">
+        function <span class="apidocSignatureSpan">neo4j.Node.prototype.</span>_createRelationship
+        <span class="apidocSignatureSpan">(from, to, type, data, _)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Node_prototype__createRelationship__5(from, to, type, data, _) {
+  var createRelationshipURL, error, exception, message, otherNodeURL, response, _ref, __this = this;
+  var __frame = {
+    name: &#x22;Node_prototype__createRelationship__5&#x22;,
+    line: 250
+  };
+  return __func(_, this, arguments, Node_prototype__createRelationship__5, 4, __frame, function __$Node_prototype__createRelationship__5
+() {
+    if ((data == null)) {
+      data = {
+      };
+    }
+    ;
+    return (function ___(__then) {
+      (function ___(_) {
+        __tryCatch(_, function __$Node_prototype__createRelationship__5() {
+          createRelationshipURL = from._data[&#x22;create_relationship&#x22;];
+          otherNodeURL = to.self;
+          return (function __$Node_prototype__createRelationship__5(__then) {
+            if ((((createRelationshipURL != null)) &#x26;&#x26; otherNodeURL)) {
+              return __this._request.post({
+                url: createRelationshipURL,
+                json: {
+                  to: otherNodeURL,
+                  data: data,
+                  type: type
+                }
+              }, __cb(_, __frame, 11, 37, function ___(__0, __2) {
+                response = __2;
+                return (function __$Node_prototype__createRelationship__5(__then) {
+                  if ((response.statusCode !== status.CREATED)) {
+                    _ref = (response.body || {
+                    }), message = _ref.message, exception = _ref.exception;
+                    return (function __$Node_prototype__createRelationship__5(_) {
+                      var __1 = message;
+                      if (__1) {
+                        return _(null, __1);
+                      }
+                      ;
+                      return (function __$Node_prototype__createRelationship__5(_) {
+                        var __2 = exception;
+                        if (__2) {
+                          return _(null, __2);
+                        }
+                        ;
+                        return (function ___closure(_) {
+                          switch (response.statusCode) {
+                          case status.BAD_REQUEST:
+                            return _(null, (((((((&#x22;Invalid createRelationship: &#x22; + from.id) + &#x22; &#x22;) + type) + &#x22; &#x22;) + to.id) + &#x22; w
+/ data: &#x22;) + (JSON.stringify(data))));
+                          case status.CONFLICT:
+                            return _(null, &#x22;\&#x22;to\&#x22; node, or the node specified by the URI not found&#x22;);
+                            default:
+                            return _(response);
+                          };
+                          _();
+                        })(__cb(_, __frame, 22, 32, _, true));
+                      })(__cb(_, __frame, -249, 0, function ___(__0, __4) {
+                        var __3 = (message = __4);
+                        return _(null, __3);
+                      }, true));
+                    })(__cb(_, __frame, -249, 0, function __$Node_prototype__createRelationship__5() {
+                      return _(new Error(message));
+                    }, true));
+                  }
+                   else {
+                    __then();
+                  }
+                  ;
+                })(function __$Node_prototype__createRelationship__5() {
+                  return _(null, new Relationship(__this.db, response.body, from, to));
+                });
+              }, true));
+            }
+             else {
+              return _(new Error(&#x22;Failed to create relationship&#x22;));
+            }
+            ;
+          })(__then);
+        });
+      })(function ___(_error, __result) {
+        __catch(function __$Node_prototype__createRelationship__5() {
+          if (_error) {
+            error = _error;
+            return _(adjustError(error));
+          }
+           else {
+            _(null, __result);
+          }
+          ;
+        }, _);
+      });
+    })(function ___() {
+      __tryCatch(_, function __$Node_prototype__createRelationship__5() {
+        _();
+      });
+    });
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+})(Node.prototype.unindex);
+Node.prototype.createRelationshipTo = function(otherNode, type, data, cb) {
+  if ((typeof data === &#x22;function&#x22;)) {
+    cb = data;
+    data = null;
+  }
+  ;
+  return this.<span class="apidocCodeKeywordSpan">_createRelationship</span>(this, otherNode, type, data, cb);
+};
+Node.prototype.createRelationshipFrom = function(otherNode, type, data, cb) {
+  if ((typeof data === &#x22;function&#x22;)) {
+    cb = data;
+    data = null;
+  }
+  ;
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.neo4j.Node.prototype._getRelationships" id="apidoc.element.neo4j.Node.prototype._getRelationships">
+        function <span class="apidocSignatureSpan">neo4j.Node.prototype.</span>_getRelationships
+        <span class="apidocSignatureSpan">(direction, type, _)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Node_prototype__getRelationships__6(direction, type, _) {
+  var error, prefix, relationshipsURL, resp, types, __this = this;
+  var __frame = {
+    name: &#x22;Node_prototype__getRelationships__6&#x22;,
+    line: 308
+  };
+  return __func(_, this, arguments, Node_prototype__getRelationships__6, 2, __frame, function __$Node_prototype__getRelationships__6
+() {
+    types = null;
+    if ((type != null)) {
+      types = ((type instanceof Array) ? type : [type,]);
+    }
+    ;
+    return (function ___(__then) {
+      (function ___(_) {
+        __tryCatch(_, function __$Node_prototype__getRelationships__6() {
+          if ((types != null)) {
+            prefix = __this._data[((&#x22;&#x22; + direction) + &#x22;_typed_relationships&#x22;)];
+            relationshipsURL = ((prefix != null) ? prefix.replace(&#x22;{-list|&#x26;|types}&#x22;, types.join(&#x22;&#x26;&#x22;)) : void 0);
+          }
+           else {
+            relationshipsURL = __this._data[((&#x22;&#x22; + direction) + &#x22;_relationships&#x22;)];
+          }
+          ;
+          if (!relationshipsURL) {
+            return _(new Error(&#x22;Couldn&#x27;t find URL of relationships endpoint.&#x22;));
+          }
+          ;
+          return __this._request.get(relationshipsURL, __cb(_, __frame, 25, 29, function ___(__0, __1) {
+            resp = __1;
+            if ((resp.statusCode === status.NOT_FOUND)) {
+              return _(new Error(&#x22;Node not found.&#x22;));
+            }
+            ;
+            if ((resp.statusCode !== status.OK)) {
+              return _(new Error((&#x22;Unrecognized response code: &#x22; + resp.statusCode)));
+            }
+            ;
+            return _(null, resp.body.map((function(_this) {
+              return function(data) {
+                if ((_this.self === data.start)) {
+                  return new Relationship(_this.db, data, _this, null);
+                }
+                 else {
+                  return new Relationship(_this.db, data, null, _this);
+                }
+                ;
+              };
+            })(__this)));
+          }, true));
+        });
+      })(function ___(_error, __result) {
+        __catch(function __$Node_prototype__getRelationships__6() {
+          if (_error) {
+            error = _error;
+            return _(adjustError(error));
+          }
+           else {
+            _(null, __result);
+          }
+          ;
+        }, _);
+      });
+    })(function ___() {
+      __tryCatch(_, function __$Node_prototype__getRelationships__6() {
+        _();
+      });
+    });
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+Node.prototype.outgoing = function Node_prototype_outgoing__8(type, _) {
+  var __this = this;
+  var __frame = {
+    name: &#x22;Node_prototype_outgoing__8&#x22;,
+    line: 371
+  };
+  return __func(_, this, arguments, Node_prototype_outgoing__8, 1, __frame, function __$Node_prototype_outgoing__8() {
+    return __this.<span class="apidocCodeKeywordSpan">_getRelationships</span>(&#x22;outgoing&#x22;, type, __cb(_, __frame, 1, 9
+, _, true));
+  });
+};
+Node.prototype.incoming = function Node_prototype_incoming__9(type, _) {
+  var __this = this;
+  var __frame = {
+    name: &#x22;Node_prototype_incoming__9&#x22;,
+    line: 382
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.neo4j.Node.prototype.all" id="apidoc.element.neo4j.Node.prototype.all">
+        function <span class="apidocSignatureSpan">neo4j.Node.prototype.</span>all
+        <span class="apidocSignatureSpan">(type, _)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Node_prototype_all__10(type, _) {
+  var __this = this;
+  var __frame = {
+    name: &#x22;Node_prototype_all__10&#x22;,
+    line: 395
+  };
+  return __func(_, this, arguments, Node_prototype_all__10, 1, __frame, function __$Node_prototype_all__10() {
+    return __this._getRelationships(&#x22;all&#x22;, type, __cb(_, __frame, 1, 9, _, true));
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+}
+;
+return (function ___(__then) {
+  (function ___(_) {
+    __tryCatch(_, function __$Node_prototype_delete__2() {
+      return (function __$Node_prototype_delete__2(__then) {
+        if (force) {
+          return __this.<span class="apidocCodeKeywordSpan">all</span>(null, __cb(_, __frame, 8, 33, function ___(__0, __2) {
+            relationships = __2;
+            return relationships.forEach_(__cb(_, __frame, 9, 30, __then, true), {
+              parallel: true
+            }, function __1(_, rel) {
+              var __frame = {
+                name: &#x22;__1&#x22;,
+                line: 106
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.neo4j.Node.prototype.constructor" id="apidoc.element.neo4j.Node.prototype.constructor">
+        function <span class="apidocSignatureSpan">neo4j.Node.prototype.</span>constructor
+        <span class="apidocSignatureSpan">(db, data)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Node(db, data) {
+  Node.__super__.constructor.call(this, db, data);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.neo4j.Node.prototype.createRelationshipFrom" id="apidoc.element.neo4j.Node.prototype.createRelationshipFrom">
+        function <span class="apidocSignatureSpan">neo4j.Node.prototype.</span>createRelationshipFrom
+        <span class="apidocSignatureSpan">(otherNode, type, data, cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">createRelationshipFrom = function (otherNode, type, data, cb) {
+  if ((typeof data === &#x22;function&#x22;)) {
+    cb = data;
+    data = null;
+  }
+  ;
+  return this._createRelationship(otherNode, this, type, data, cb);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.neo4j.Node.prototype.createRelationshipTo" id="apidoc.element.neo4j.Node.prototype.createRelationshipTo">
+        function <span class="apidocSignatureSpan">neo4j.Node.prototype.</span>createRelationshipTo
+        <span class="apidocSignatureSpan">(otherNode, type, data, cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">createRelationshipTo = function (otherNode, type, data, cb) {
+  if ((typeof data === &#x22;function&#x22;)) {
+    cb = data;
+    data = null;
+  }
+  ;
+  return this._createRelationship(this, otherNode, type, data, cb);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.neo4j.Node.prototype.delete" id="apidoc.element.neo4j.Node.prototype.delete">
+        function <span class="apidocSignatureSpan">neo4j.Node.prototype.</span>delete
+        <span class="apidocSignatureSpan">(_, force)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Node_prototype_delete__2(_, force) {
+  var error, relationships, __this = this, __arguments = arguments;
+  var __frame = {
+    name: &#x22;Node_prototype_delete__2&#x22;,
+    line: 97
+  };
+  return __func(_, this, arguments, Node_prototype_delete__2, 0, __frame, function __$Node_prototype_delete__2() {
+    if ((force == null)) {
+      force = false;
+    }
+    ;
+    if (!__this.exists) {
+      return _(null);
+    }
+    ;
+    return (function ___(__then) {
+      (function ___(_) {
+        __tryCatch(_, function __$Node_prototype_delete__2() {
+          return (function __$Node_prototype_delete__2(__then) {
+            if (force) {
+              return __this.all(null, __cb(_, __frame, 8, 33, function ___(__0, __2) {
+                relationships = __2;
+                return relationships.forEach_(__cb(_, __frame, 9, 30, __then, true), {
+                  parallel: true
+                }, function __1(_, rel) {
+                  var __frame = {
+                    name: &#x22;__1&#x22;,
+                    line: 106
+                  };
+                  return __func(_, this, arguments, __1, 0, __frame, function __$__1() {
+                    return rel[&#x22;delete&#x22;](__cb(_, __frame, 1, 20, _, true));
+                  });
+                });
+              }, true));
+            }
+             else {
+              __then();
+            }
+            ;
+          })(__then);
+        });
+      })(function ___(_error, __result) {
+        __catch(function __$Node_prototype_delete__2() {
+          if (_error) {
+            error = _error;
+            return _(adjustError(error));
+          }
+           else {
+            _(null, __result);
+          }
+          ;
+        }, _);
+      });
+    })(function ___() {
+      __tryCatch(_, function __$Node_prototype_delete__2() {
+        return __apply(__cb(_, __frame, NaN, 0, _, true), Node.__super__[&#x22;delete&#x22;], __this, __arguments, 0);
+      });
+    });
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.neo4j.Node.prototype.getRelationshipNodes" id="apidoc.element.neo4j.Node.prototype.getRelationshipNodes">
+        function <span class="apidocSignatureSpan">neo4j.Node.prototype.</span>getRelationshipNodes
+        <span class="apidocSignatureSpan">(rels, _)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Node_prototype_getRelationshipNodes__11(rels, _) {
+  var error, resp, traverseURL, _ref, _ref1, _ref2, __this = this;
+  var __frame = {
+    name: &#x22;Node_prototype_getRelationshipNodes__11&#x22;,
+    line: 414
+  };
+  return __func(_, this, arguments, Node_prototype_getRelationshipNodes__11, 1, __frame, function __$Node_prototype_getRelationshipNodes__11
+() {
+    rels = ((rels instanceof Array) ? rels : [rels,]);
+    return (function ___(__then) {
+      (function ___(_) {
+        __tryCatch(_, function __$Node_prototype_getRelationshipNodes__11() {
+          traverseURL = (((_ref = __this._data[&#x22;traverse&#x22;]) != null) ? _ref.replace(&#x22;{returnType}&#x22;, &#x22;node&#x22;) : void 0);
+          if (!traverseURL) {
+            return _(new Error(&#x22;Traverse not available.&#x22;));
+          }
+          ;
+          return __this._request.post({
+            url: traverseURL,
+            json: {
+              max_depth: 1,
+              relationships: rels.map(function(rel) {
+                if ((typeof rel === &#x22;string&#x22;)) {
+                  return {
+                    type: rel
+                  };
+                }
+                 else {
+                  return rel;
+                }
+                ;
+              })
+            }
+          }, __cb(_, __frame, 11, 29, function ___(__0, __1) {
+            resp = __1;
+            if ((resp.statusCode === 404)) {
+              return _(new Error((((((_ref1 = resp.body) != null) ? _ref1.message : void 0)) || &#x22;Node not found.&#x22;)));
+            }
+            ;
+            if ((resp.statusCode !== 200)) {
+              return _(new Error((((((_ref2 = resp.body) != null) ? _ref2.message : void 0)) || ((&#x22;Unrecognized response code: &#x22; +
+resp.statusCode)))));
+            }
+            ;
+            return _(null, resp.body.map((function(_this) {
+              return function(data) {
+                return new Node(_this.db, data);
+              };
+            })(__this)));
+          }, true));
+        });
+      })(function ___(_error, __result) {
+        __catch(function __$Node_prototype_getRelationshipNodes__11() {
+          if (_error) {
+            error = _error;
+            return _(adjustError(error));
+          }
+           else {
+            _(null, __result);
+          }
+          ;
+        }, _);
+      });
+    })(function ___() {
+      __tryCatch(_, function __$Node_prototype_getRelationshipNodes__11() {
+        _();
+      });
+    });
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.neo4j.Node.prototype.getRelationships" id="apidoc.element.neo4j.Node.prototype.getRelationships">
+        function <span class="apidocSignatureSpan">neo4j.Node.prototype.</span>getRelationships
+        <span class="apidocSignatureSpan">(type, _)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Node_prototype_getRelationships__7(type, _) {
+  var __this = this;
+  var __frame = {
+    name: &#x22;Node_prototype_getRelationships__7&#x22;,
+    line: 360
+  };
+  return __func(_, this, arguments, Node_prototype_getRelationships__7, 1, __frame, function __$Node_prototype_getRelationships__7
+() {
+    return __this.all(type, __cb(_, __frame, 1, 9, _, true));
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.neo4j.Node.prototype.incoming" id="apidoc.element.neo4j.Node.prototype.incoming">
+        function <span class="apidocSignatureSpan">neo4j.Node.prototype.</span>incoming
+        <span class="apidocSignatureSpan">(type, _)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Node_prototype_incoming__9(type, _) {
+  var __this = this;
+  var __frame = {
+    name: &#x22;Node_prototype_incoming__9&#x22;,
+    line: 382
+  };
+  return __func(_, this, arguments, Node_prototype_incoming__9, 1, __frame, function __$Node_prototype_incoming__9() {
+    return __this._getRelationships(&#x22;incoming&#x22;, type, __cb(_, __frame, 1, 9, _, true));
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.neo4j.Node.prototype.index" id="apidoc.element.neo4j.Node.prototype.index">
+        function <span class="apidocSignatureSpan">neo4j.Node.prototype.</span>index
+        <span class="apidocSignatureSpan">(index, key, value, _)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Node_prototype_index__3(index, key, value, _) {
+  var error, response, services, __this = this;
+  var __frame = {
+    name: &#x22;Node_prototype_index__3&#x22;,
+    line: 123
+  };
+  return __func(_, this, arguments, Node_prototype_index__3, 3, __frame, function __$Node_prototype_index__3() {
+    return (function ___(__then) {
+      (function ___(_) {
+        __tryCatch(_, function __$Node_prototype_index__3() {
+          if (!__this.exists) {
+            return _(new Error(&#x22;Node must exist before indexing.&#x22;));
+          }
+          ;
+          return __this.db.getServices(__cb(_, __frame, 5, 27, function ___(__0, __1) {
+            services = __1;
+            return __this._request.post({
+              url: (((&#x22;&#x22; + services.node_index) + &#x22;/&#x22;) + index),
+              json: {
+                key: key,
+                value: value,
+                uri: __this.self
+              }
+            }, __cb(_, __frame, 7, 33, function ___(__0, __2) {
+              response = __2;
+              if ((response.statusCode !== status.CREATED)) {
+                return _(response);
+              }
+              ;
+              __then();
+            }, true));
+          }, true));
+        });
+      })(function ___(_error, __result) {
+        __catch(function __$Node_prototype_index__3() {
+          if (_error) {
+            error = _error;
+            return _(adjustError(error));
+          }
+           else {
+            _(null, __result);
+          }
+          ;
+        }, _);
+      });
+    })(function ___() {
+      __tryCatch(_, function __$Node_prototype_index__3() {
+        _();
+      });
+    });
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.neo4j.Node.prototype.outgoing" id="apidoc.element.neo4j.Node.prototype.outgoing">
+        function <span class="apidocSignatureSpan">neo4j.Node.prototype.</span>outgoing
+        <span class="apidocSignatureSpan">(type, _)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Node_prototype_outgoing__8(type, _) {
+  var __this = this;
+  var __frame = {
+    name: &#x22;Node_prototype_outgoing__8&#x22;,
+    line: 371
+  };
+  return __func(_, this, arguments, Node_prototype_outgoing__8, 1, __frame, function __$Node_prototype_outgoing__8() {
+    return __this._getRelationships(&#x22;outgoing&#x22;, type, __cb(_, __frame, 1, 9, _, true));
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.neo4j.Node.prototype.path" id="apidoc.element.neo4j.Node.prototype.path">
+        function <span class="apidocSignatureSpan">neo4j.Node.prototype.</span>path
+        <span class="apidocSignatureSpan">(to, type, direction, maxDepth, algorithm, _)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Node_prototype_path__12(to, type, direction, maxDepth, algorithm, _) {
+  var data, end, error, length, nodes, pathURL, relationships, res, start, __this = this;
+  var __frame = {
+    name: &#x22;Node_prototype_path__12&#x22;,
+    line: 463
+  };
+  return __func(_, this, arguments, Node_prototype_path__12, 5, __frame, function __$Node_prototype_path__12() {
+    if ((maxDepth == null)) {
+      maxDepth = 1;
+    }
+    ;
+    if ((algorithm == null)) {
+      algorithm = &#x22;shortestPath&#x22;;
+    }
+    ;
+    return (function ___(__then) {
+      (function ___(_) {
+        __tryCatch(_, function __$Node_prototype_path__12() {
+          pathURL = ((&#x22;&#x22; + __this.self) + &#x22;/path&#x22;);
+          data = {
+            to: to.self,
+            relationships: {
+              type: type,
+              direction: direction
+            },
+            max_depth: maxDepth,
+            algorithm: algorithm
+          };
+          return __this._request.post({
+            url: pathURL,
+            json: data
+          }, __cb(_, __frame, 11, 28, function ___(__0, __1) {
+            res = __1;
+            if ((res.statusCode === status.NOT_FOUND)) {
+              return _(null, null);
+            }
+            ;
+            if ((res.statusCode !== status.OK)) {
+              return _(new Error((&#x22;Unrecognized response code: &#x22; + res.statusCode)));
+            }
+            ;
+            data = res.body;
+            start = new Node(__this, {
+              self: data.start
+            });
+            end = new Node(__this, {
+              self: data.end
+            });
+            length = data.length;
+            nodes = data.nodes.map((function(_this) {
+              return function(url) {
+                return new Node(_this, {
+                  self: url
+                });
+              };
+            })(__this));
+            relationships = data.relationships.map((function(_this) {
+              return function(url) {
+                return new Relationship(_this, {
+                  self: url,
+                  type: type
+                });
+              };
+            })(__this));
+            return _(null, new Path(start, end, length, nodes, relationships));
+          }, true));
+        });
+      })(function ___(_error, __result) {
+        __catch(function __$Node_prototype_path__12() {
+          if (_error) {
+            error = _error;
+            return _(adjustError(error));
+          }
+           else {
+            _(null, __result);
+          }
+          ;
+        }, _);
+      });
+    })(function ___() {
+      __tryCatch(_, function __$Node_prototype_path__12() {
+        _();
+      });
+    });
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.neo4j.Node.prototype.save" id="apidoc.element.neo4j.Node.prototype.save">
+        function <span class="apidocSignatureSpan">neo4j.Node.prototype.</span>save
+        <span class="apidocSignatureSpan">(_)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Node_prototype_save__1(_) {
+  var error, response, services, __this = this;
+  var __frame = {
+    name: &#x22;Node_prototype_save__1&#x22;,
+    line: 43
+  };
+  return __func(_, this, arguments, Node_prototype_save__1, 0, __frame, function __$Node_prototype_save__1() {
+    return (function ___(__then) {
+      (function ___(_) {
+        __tryCatch(_, function __$Node_prototype_save__1() {
+          return (function __$Node_prototype_save__1(__then) {
+            if (__this.exists) {
+              return __this._request.put({
+                uri: ((&#x22;&#x22; + __this.self) + &#x22;/properties&#x22;),
+                json: __this.data
+              }, __cb(_, __frame, 4, 37, function ___(__0, __1) {
+                response = __1;
+                if ((response.statusCode !== status.NO_CONTENT)) {
+                  switch (response.statusCode) {
+                  case status.BAD_REQUEST:
+                    return _(new Error(&#x22;Invalid data sent&#x22;));
+                  case status.NOT_FOUND:
+                    return _(new Error(&#x22;Node not found&#x22;));
+                    default:
+                    return _(response);
+                  };
+                }
+                ;
+                __then();
+              }, true));
+            }
+             else {
+              return __this.db.getServices(__cb(_, __frame, 19, 31, function ___(__0, __2) {
+                services = __2;
+                return __this._request.post({
+                  uri: services.node,
+                  json: __this.data
+                }, __cb(_, __frame, 21, 37, function ___(__0, __3) {
+                  response = __3;
+                  if ((response.statusCode !== status.CREATED)) {
+                    switch (response.statusCode) {
+                    case status.BAD_REQUEST:
+                      return _(new Error(&#x22;Invalid data sent&#x22;));
+                      default:
+                      return _(response);
+                    };
+                  }
+                  ;
+                  __this._data = response.body;
+                  __then();
+                }, true));
+              }, true));
+            }
+            ;
+          })(function __$Node_prototype_save__1() {
+            return _(null, __this);
+          });
+        });
+      })(function ___(_error, __result) {
+        __catch(function __$Node_prototype_save__1() {
+          if (_error) {
+            error = _error;
+            return _(adjustError(error));
+          }
+           else {
+            _(null, __result);
+          }
+          ;
+        }, _);
+      });
+    })(function ___() {
+      __tryCatch(_, function __$Node_prototype_save__1() {
+        _();
+      });
+    });
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+callbacks and return immediately, with the callbacks being invoked when the
+corresponding HTTP requests and responses finish.
+
+Here&#x27;s a simple example:
+
+```js
+var node = db.createNode({hello: &#x27;world&#x27;});     // instantaneous, but...
+node.<span class="apidocCodeKeywordSpan">save</span>(function (err, node) {    // ...this is what actually persists.
+    if (err) {
+        console.error(&#x27;Error saving new node to database:&#x27;, err);
+    } else {
+        console.log(&#x27;Node saved to database with id:&#x27;, node.id);
+    }
+});
+```
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.neo4j.Node.prototype.toString" id="apidoc.element.neo4j.Node.prototype.toString">
+        function <span class="apidocSignatureSpan">neo4j.Node.prototype.</span>toString
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">toString = function () {
+  if (this.exists) {
+    return (&#x22;node @&#x22; + this.id);
+  }
+   else {
+    return ((&#x22;unsaved node (&#x22; + (JSON.stringify(this.data, null, 4))) + &#x22;)&#x22;);
+  }
+  ;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.neo4j.Node.prototype.unindex" id="apidoc.element.neo4j.Node.prototype.unindex">
+        function <span class="apidocSignatureSpan">neo4j.Node.prototype.</span>unindex
+        <span class="apidocSignatureSpan">(index, key, value, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">unindex = function (index, key, value, callback) {
+  if ((typeof key === &#x22;function&#x22;)) {
+    callback = key;
+    key = null;
+    value = null;
+  }
+   else if ((typeof value === &#x22;function&#x22;)) {
+    callback = value;
+    value = null;
+  }
+
+  ;
+  return actual.call(this, index, key, value, callback);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.neo4j.PropertyContainer" id="apidoc.module.neo4j.PropertyContainer">module neo4j.PropertyContainer</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.neo4j.PropertyContainer.PropertyContainer" id="apidoc.element.neo4j.PropertyContainer.PropertyContainer">
+        function <span class="apidocSignatureSpan">neo4j.</span>PropertyContainer
+        <span class="apidocSignatureSpan">(db, data)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function PropertyContainer(db, data) {
+  this.db = db;
+  this._request = db._request;
+  this._data = (data || {
+  });
+  this._data.self = ((((data != null) ? data.self : void 0)) || null);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.neo4j.PropertyContainer._fromJSON" id="apidoc.element.neo4j.PropertyContainer._fromJSON">
+        function <span class="apidocSignatureSpan">neo4j.PropertyContainer.</span>_fromJSON
+        <span class="apidocSignatureSpan">(db, obj)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_fromJSON = function (db, obj) {
+  var _data;
+  _data = obj._data;
+  return new this(db, _data);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.neo4j.PropertyContainer.prototype" id="apidoc.module.neo4j.PropertyContainer.prototype">module neo4j.PropertyContainer.prototype</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.neo4j.PropertyContainer.prototype.del" id="apidoc.element.neo4j.PropertyContainer.prototype.del">
+        function <span class="apidocSignatureSpan">neo4j.PropertyContainer.prototype.</span>del
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">del = function () {
+  return this[&#x22;delete&#x22;].apply(this, arguments);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+;
+if (value) {
+  value = encodeURIComponent(value);
+}
+;
+base = (((&#x22;&#x22; + services.node_index) + &#x22;/&#x22;) + (encodeURIComponent(index)));
+url = ((key &#x26;&#x26; value) ? (((((((&#x22;&#x22; + base) + &#x22;/&#x22;) + key) + &#x22;/&#x22;) + value) + &#x22;/&#x22;) +
+__this.id) : (key ? (((((&#x22;&#x22; + base) + &#x22;/&#x22;) + key) + &#x22;/&#x22;) + __this.id) : (((&#x22;&#x22; + base) + &#
+x22;/&#x22;) + __this.id)));
+return __this._request.<span class="apidocCodeKeywordSpan">del</span>(url, __cb(_, __frame, 20, 33, function ___(__0, __2) {
+  response = __2;
+  if ((response.statusCode !== status.NO_CONTENT)) {
+    return _(response);
+  }
+  ;
+  __then();
+}, true));
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.neo4j.PropertyContainer.prototype.delete" id="apidoc.element.neo4j.PropertyContainer.prototype.delete">
+        function <span class="apidocSignatureSpan">neo4j.PropertyContainer.prototype.</span>delete
+        <span class="apidocSignatureSpan">(_)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function PropertyContainer_prototype_delete__1(_) {
+  var error, response, __this = this;
+  var __frame = {
+    name: &#x22;PropertyContainer_prototype_delete__1&#x22;,
+    line: 86
+  };
+  return __func(_, this, arguments, PropertyContainer_prototype_delete__1, 0, __frame, function __$PropertyContainer_prototype_delete__1
+() {
+    if (!__this.exists) {
+      return _(null);
+    }
+    ;
+    return (function ___(__then) {
+      (function ___(_) {
+        __tryCatch(_, function __$PropertyContainer_prototype_delete__1() {
+          return __this._request.del(__this.self, __cb(_, __frame, 5, 33, function ___(__0, __1) {
+            response = __1;
+            if ((response.statusCode !== status.NO_CONTENT)) {
+              switch (response.statusCode) {
+              case status.NOT_FOUND:
+                return _(new Error(&#x22;PropertyContainer not found&#x22;));
+              case status.CONFLICT:
+                return _(new Error(&#x22;Node could not be deleted (still has relationships?)&#x22;));
+                default:
+                return _(response);
+              };
+            }
+            ;
+            __this._data.self = null;
+            __then();
+          }, true));
+        });
+      })(function ___(_error, __result) {
+        __catch(function __$PropertyContainer_prototype_delete__1() {
+          if (_error) {
+            error = _error;
+            return _(adjustError(error));
+          }
+           else {
+            _(null, __result);
+          }
+          ;
+        }, _);
+      });
+    })(function ___() {
+      __tryCatch(_, function __$PropertyContainer_prototype_delete__1() {
+        _();
+      });
+    });
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.neo4j.PropertyContainer.prototype.equals" id="apidoc.element.neo4j.PropertyContainer.prototype.equals">
+        function <span class="apidocSignatureSpan">neo4j.PropertyContainer.prototype.</span>equals
+        <span class="apidocSignatureSpan">(other)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">equals = function (other) {
+  return (this.self === (((other != null) ? other.self : void 0)));
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.neo4j.PropertyContainer.prototype.toJSON" id="apidoc.element.neo4j.PropertyContainer.prototype.toJSON">
+        function <span class="apidocSignatureSpan">neo4j.PropertyContainer.prototype.</span>toJSON
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">toJSON = function () {
+  var json;
+  json = this.db._toJSON(this);
+  json._data = this._data;
+  return json;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.neo4j.Relationship" id="apidoc.module.neo4j.Relationship">module neo4j.Relationship</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.neo4j.Relationship.Relationship" id="apidoc.element.neo4j.Relationship.Relationship">
+        function <span class="apidocSignatureSpan">neo4j.</span>Relationship
+        <span class="apidocSignatureSpan">(db, data, start, end)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Relationship(db, data, start, end) {
+  var Node;
+  Relationship.__super__.constructor.call(this, db, data);
+  Node = require(&#x22;./Node&#x22;);
+  this._start = (start || new Node(db, {
+    self: data.start
+  }));
+  this._end = (end || new Node(db, {
+    self: data.end
+  }));
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.neo4j.Relationship._fromJSON" id="apidoc.element.neo4j.Relationship._fromJSON">
+        function <span class="apidocSignatureSpan">neo4j.Relationship.</span>_fromJSON
+        <span class="apidocSignatureSpan">(db, obj)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_fromJSON = function (db, obj) {
+  var _data;
+  _data = obj._data;
+  return new this(db, _data);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.neo4j.Relationship.prototype" id="apidoc.module.neo4j.Relationship.prototype">module neo4j.Relationship.prototype</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.neo4j.Relationship.prototype.constructor" id="apidoc.element.neo4j.Relationship.prototype.constructor">
+        function <span class="apidocSignatureSpan">neo4j.Relationship.prototype.</span>constructor
+        <span class="apidocSignatureSpan">(db, data, start, end)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Relationship(db, data, start, end) {
+  var Node;
+  Relationship.__super__.constructor.call(this, db, data);
+  Node = require(&#x22;./Node&#x22;);
+  this._start = (start || new Node(db, {
+    self: data.start
+  }));
+  this._end = (end || new Node(db, {
+    self: data.end
+  }));
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.neo4j.Relationship.prototype.index" id="apidoc.element.neo4j.Relationship.prototype.index">
+        function <span class="apidocSignatureSpan">neo4j.Relationship.prototype.</span>index
+        <span class="apidocSignatureSpan">(index, key, value, _)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Relationship_prototype_index__2(index, key, value, _) {
+  var error, response, services, __this = this;
+  var __frame = {
+    name: &#x22;Relationship_prototype_index__2&#x22;,
+    line: 111
+  };
+  return __func(_, this, arguments, Relationship_prototype_index__2, 3, __frame, function __$Relationship_prototype_index__2() {
+    return (function ___(__then) {
+      (function ___(_) {
+        __tryCatch(_, function __$Relationship_prototype_index__2() {
+          if (!__this.exists) {
+            return _(new Error(&#x22;Relationship must exist before indexing properties&#x22;));
+          }
+          ;
+          return __this.db.getServices(__cb(_, __frame, 5, 27, function ___(__0, __1) {
+            services = __1;
+            return __this._request.post({
+              url: (((&#x22;&#x22; + services.relationship_index) + &#x22;/&#x22;) + index),
+              json: {
+                key: key,
+                value: value,
+                uri: __this.self
+              }
+            }, __cb(_, __frame, 7, 33, function ___(__0, __2) {
+              response = __2;
+              if ((response.statusCode !== status.CREATED)) {
+                return _(response);
+              }
+              ;
+              __then();
+            }, true));
+          }, true));
+        });
+      })(function ___(_error, __result) {
+        __catch(function __$Relationship_prototype_index__2() {
+          if (_error) {
+            error = _error;
+            return _(adjustError(error));
+          }
+           else {
+            _(null, __result);
+          }
+          ;
+        }, _);
+      });
+    })(function ___() {
+      __tryCatch(_, function __$Relationship_prototype_index__2() {
+        _();
+      });
+    });
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.neo4j.Relationship.prototype.save" id="apidoc.element.neo4j.Relationship.prototype.save">
+        function <span class="apidocSignatureSpan">neo4j.Relationship.prototype.</span>save
+        <span class="apidocSignatureSpan">(_)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Relationship_prototype_save__1(_) {
+  var error, response, __this = this;
+  var __frame = {
+    name: &#x22;Relationship_prototype_save__1&#x22;,
+    line: 78
+  };
+  return __func(_, this, arguments, Relationship_prototype_save__1, 0, __frame, function __$Relationship_prototype_save__1() {
+    return (function ___(__then) {
+      (function ___(_) {
+        __tryCatch(_, function __$Relationship_prototype_save__1() {
+          return __this._request.put({
+            uri: ((&#x22;&#x22; + __this.self) + &#x22;/properties&#x22;),
+            json: __this.data
+          }, __cb(_, __frame, 4, 33, function ___(__0, __1) {
+            response = __1;
+            if ((response.statusCode !== status.NO_CONTENT)) {
+              switch (response.statusCode) {
+              case status.BAD_REQUEST:
+                return _(new Error(&#x22;Invalid data sent&#x22;));
+              case status.NOT_FOUND:
+                return _(new Error(&#x22;Relationship not found&#x22;));
+                default:
+                return _(response);
+              };
+            }
+            ;
+            return _(null, __this);
+          }, true));
+        });
+      })(function ___(_error, __result) {
+        __catch(function __$Relationship_prototype_save__1() {
+          if (_error) {
+            error = _error;
+            return _(adjustError(error));
+          }
+           else {
+            _(null, __result);
+          }
+          ;
+        }, _);
+      });
+    })(function ___() {
+      __tryCatch(_, function __$Relationship_prototype_save__1() {
+        _();
+      });
+    });
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+callbacks and return immediately, with the callbacks being invoked when the
+corresponding HTTP requests and responses finish.
+
+Here&#x27;s a simple example:
+
+```js
+var node = db.createNode({hello: &#x27;world&#x27;});     // instantaneous, but...
+node.<span class="apidocCodeKeywordSpan">save</span>(function (err, node) {    // ...this is what actually persists.
+    if (err) {
+        console.error(&#x27;Error saving new node to database:&#x27;, err);
+    } else {
+        console.log(&#x27;Node saved to database with id:&#x27;, node.id);
+    }
+});
+```
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.neo4j.Relationship.prototype.toString" id="apidoc.element.neo4j.Relationship.prototype.toString">
+        function <span class="apidocSignatureSpan">neo4j.Relationship.prototype.</span>toString
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">toString = function () {
+  return ((((&#x22;relationship @&#x22; + this.id) + &#x22; (&#x22;) + this.type) + &#x22;)&#x22;);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.neo4j.Relationship.prototype.unindex" id="apidoc.element.neo4j.Relationship.prototype.unindex">
+        function <span class="apidocSignatureSpan">neo4j.Relationship.prototype.</span>unindex
+        <span class="apidocSignatureSpan">(index, key, value, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">unindex = function (index, key, value, callback) {
+  if ((typeof key === &#x22;function&#x22;)) {
+    callback = key;
+    key = null;
+    value = null;
+  }
+   else if ((typeof value === &#x22;function&#x22;)) {
+    callback = value;
+    value = null;
+  }
+
+  ;
+  return actual.call(this, index, key, value, callback);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.neo4j.util" id="apidoc.module.neo4j.util">module neo4j.util</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.neo4j.util.adjustError" id="apidoc.element.neo4j.util.adjustError">
+        function <span class="apidocSignatureSpan">neo4j.util.</span>adjustError
+        <span class="apidocSignatureSpan">(error)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">adjustError = function (error) {
+  var serverError;
+  if (error.statusCode) {
+    serverError = error.body || {
+      message: &#x22;Unknown Neo4j error (status &#x22; + error.statusCode + &#x22;).&#x22;
+    };
+    if (typeof serverError === &#x27;string&#x27;) {
+      try {
+        serverError = JSON.parse(serverError);
+      } catch (_error) {}
+    }
+    if ((serverError != null ? serverError.exception : void 0) &#x26;&#x26; !serverError.message) {
+      serverError.message = &#x22;Neo4j &#x22; + serverError.exception + &#x22;: &#x22; + (JSON.stringify(serverError.stacktrace || [], null, 2));
+    }
+    error = new Error;
+    error.message = serverError.message || serverError;
+  }
+  if (typeof error !== &#x27;object&#x27;) {
+    error = new Error(error);
+  }
+  if (error.code === &#x27;ECONNREFUSED&#x27;) {
+    error.message = &#x22;Couldn&#x27;t reach database (connection refused).&#x22;;
+  }
+  return error;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.neo4j.util.deserialize" id="apidoc.element.neo4j.util.deserialize">
+        function <span class="apidocSignatureSpan">neo4j.util.</span>deserialize
+        <span class="apidocSignatureSpan">(o, separator)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">deserialize = function (o, separator) {
+  return unflatten(JSON.parse(o), separator);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.neo4j.util.serialize" id="apidoc.element.neo4j.util.serialize">
+        function <span class="apidocSignatureSpan">neo4j.util.</span>serialize
+        <span class="apidocSignatureSpan">(o, separator)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">serialize = function (o, separator) {
+  return JSON.stringify(flatten(o, separator));
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.neo4j.util.transform" id="apidoc.element.neo4j.util.transform">
+        function <span class="apidocSignatureSpan">neo4j.util.</span>transform
+        <span class="apidocSignatureSpan">(val, db)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">transform = function (val, db) {
+  var Node, Path, Relationship, end, hasProps, key, length, map, nodes, relationships, start, subval;
+  if (!val || typeof val !== &#x27;object&#x27;) {
+    return val;
+  }
+  if (val instanceof Array) {
+    return val.map(function(val) {
+      return transform(val, db);
+    });
+  }
+  Path = require(&#x27;./Path&#x27;);
+  Node = require(&#x27;./Node&#x27;);
+  Relationship = require(&#x27;./Relationship&#x27;);
+  hasProps = function(props) {
+    var key, keys, type, _i, _len, _ref;
+    for (type in props) {
+      keys = props[type];
+      _ref = keys.split(&#x27;|&#x27;);
+      for (_i = 0, _len = _ref.length; _i &#x3c; _len; _i++) {
+        key = _ref[_i];
+        if (typeof val[key] !== type) {
+          return false;
+        }
+      }
+    }
+    return true;
+  };
+  if (hasProps({
+    string: &#x27;self|traverse&#x27;,
+    object: &#x27;data&#x27;
+  })) {
+    return new Node(db, val);
+  }
+  if (hasProps({
+    string: &#x27;self|type|start|end&#x27;,
+    object: &#x27;data&#x27;
+  })) {
+    return new Relationship(db, val);
+  }
+  if (hasProps({
+    string: &#x27;start|end&#x27;,
+    number: &#x27;length&#x27;,
+    object: &#x27;nodes|relationships&#x27;
+  })) {
+    start = new Node(db, {
+      self: val.start
+    });
+    end = new Node(db, {
+      self: val.end
+    });
+    length = val.length;
+    nodes = val.nodes.map(function(url) {
+      return new Node(db, {
+        self: url
+      });
+    });
+    relationships = val.relationships.map(function(url) {
+      return new Relationship(db, {
+        self: url
+      });
+    });
+    return new Path(start, end, length, nodes, relationships);
+  } else {
+    map = {};
+    for (key in val) {
+      subval = val[key];
+      map[key] = transform(subval, db);
+    }
+    return map;
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.neo4j.util.wrapRequest" id="apidoc.element.neo4j.util.wrapRequest">
+        function <span class="apidocSignatureSpan">neo4j.util.</span>wrapRequest
+        <span class="apidocSignatureSpan">(_arg)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">wrapRequest = function (_arg) {
+  var auth, modifyArgs, proxy, req, url, verb, wrapper, _fn, _i, _len, _ref;
+  url = _arg.url, proxy = _arg.proxy;
+  req = request.defaults({
+    json: true,
+    proxy: proxy
+  });
+  auth = URL.parse(url).auth;
+  modifyArgs = function(args) {
+    var arg, opts;
+    arg = args[0];
+    opts = typeof arg === &#x27;string&#x27; ? {
+      url: arg
+    } : arg;
+    url = opts.url || opts.uri;
+    url = URL.parse(url);
+    if (url.auth !== auth) {
+      url.host = &#x22;&#x22; + auth + &#x22;@&#x22; + url.host;
+    }
+    url = URL.format(url);
+    opts.url = opts.uri = url;
+    opts.headers || (opts.headers = {});
+    opts.headers[&#x27;User-Agent&#x27;] = USER_AGENT;
+    opts.headers[&#x27;X-Stream&#x27;] = true;
+    args[0] = opts;
+    return args;
+  };
+  wrapper = {};
+  _ref = [&#x27;get&#x27;, &#x27;post&#x27;, &#x27;put&#x27;, &#x27;del&#x27;, &#x27;head&#x27;];
+  _fn = function(verb) {
+    return wrapper[verb] = function() {
+      var args;
+      args = 1 &#x3c;= arguments.length ? __slice.call(arguments, 0) : [];
+      return req[verb].apply(req, modifyArgs(args));
+    };
+  };
+  for (_i = 0, _len = _ref.length; _i &#x3c; _len; _i++) {
+    verb = _ref[_i];
+    _fn(verb);
+  }
+  return wrapper;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocFooterDiv">
+    [ this document was created with
+    <a href="https://github.com/kaizhu256/node-utility2" target="_blank">utility2</a>
+    ]
+</div>
+</div>
